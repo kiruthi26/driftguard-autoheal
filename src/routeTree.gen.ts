@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AnomalyRouteImport } from './routes/anomaly'
+import { Route as DriftRouteImport } from './routes/drift'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as MonitoringRouteImport } from './routes/monitoring'
+import { Route as PipelineRouteImport } from './routes/pipeline'
+import { Route as RemediationRouteImport } from './routes/remediation'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as UpdateRouteImport } from './routes/update'
+import { Route as UploadRouteImport } from './routes/upload'
+import { Route as ValidationRouteImport } from './routes/validation'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnomalyRoute = AnomalyRouteImport.update({
+  id: '/anomaly',
+  path: '/anomaly',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DriftRoute = DriftRouteImport.update({
+  id: '/drift',
+  path: '/drift',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MonitoringRoute = MonitoringRouteImport.update({
+  id: '/monitoring',
+  path: '/monitoring',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PipelineRoute = PipelineRouteImport.update({
+  id: '/pipeline',
+  path: '/pipeline',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RemediationRoute = RemediationRouteImport.update({
+  id: '/remediation',
+  path: '/remediation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UpdateRoute = UpdateRouteImport.update({
+  id: '/update',
+  path: '/update',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UploadRoute = UploadRouteImport.update({
+  id: '/upload',
+  path: '/upload',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ValidationRoute = ValidationRouteImport.update({
+  id: '/validation',
+  path: '/validation',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/anomaly': typeof AnomalyRoute
+  '/drift': typeof DriftRoute
+  '/history': typeof HistoryRoute
+  '/monitoring': typeof MonitoringRoute
+  '/pipeline': typeof PipelineRoute
+  '/remediation': typeof RemediationRoute
+  '/settings': typeof SettingsRoute
+  '/update': typeof UpdateRoute
+  '/upload': typeof UploadRoute
+  '/validation': typeof ValidationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/anomaly': typeof AnomalyRoute
+  '/drift': typeof DriftRoute
+  '/history': typeof HistoryRoute
+  '/monitoring': typeof MonitoringRoute
+  '/pipeline': typeof PipelineRoute
+  '/remediation': typeof RemediationRoute
+  '/settings': typeof SettingsRoute
+  '/update': typeof UpdateRoute
+  '/upload': typeof UploadRoute
+  '/validation': typeof ValidationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/anomaly': typeof AnomalyRoute
+  '/drift': typeof DriftRoute
+  '/history': typeof HistoryRoute
+  '/monitoring': typeof MonitoringRoute
+  '/pipeline': typeof PipelineRoute
+  '/remediation': typeof RemediationRoute
+  '/settings': typeof SettingsRoute
+  '/update': typeof UpdateRoute
+  '/upload': typeof UploadRoute
+  '/validation': typeof ValidationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/anomaly'
+    | '/drift'
+    | '/history'
+    | '/monitoring'
+    | '/pipeline'
+    | '/remediation'
+    | '/settings'
+    | '/update'
+    | '/upload'
+    | '/validation'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/anomaly'
+    | '/drift'
+    | '/history'
+    | '/monitoring'
+    | '/pipeline'
+    | '/remediation'
+    | '/settings'
+    | '/update'
+    | '/upload'
+    | '/validation'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/anomaly'
+    | '/drift'
+    | '/history'
+    | '/monitoring'
+    | '/pipeline'
+    | '/remediation'
+    | '/settings'
+    | '/update'
+    | '/upload'
+    | '/validation'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AnomalyRoute: typeof AnomalyRoute
+  DriftRoute: typeof DriftRoute
+  HistoryRoute: typeof HistoryRoute
+  MonitoringRoute: typeof MonitoringRoute
+  PipelineRoute: typeof PipelineRoute
+  RemediationRoute: typeof RemediationRoute
+  SettingsRoute: typeof SettingsRoute
+  UpdateRoute: typeof UpdateRoute
+  UploadRoute: typeof UploadRoute
+  ValidationRoute: typeof ValidationRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/anomaly': {
+      id: '/anomaly'
+      path: '/anomaly'
+      fullPath: '/anomaly'
+      preLoaderRoute: typeof AnomalyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/drift': {
+      id: '/drift'
+      path: '/drift'
+      fullPath: '/drift'
+      preLoaderRoute: typeof DriftRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/monitoring': {
+      id: '/monitoring'
+      path: '/monitoring'
+      fullPath: '/monitoring'
+      preLoaderRoute: typeof MonitoringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pipeline': {
+      id: '/pipeline'
+      path: '/pipeline'
+      fullPath: '/pipeline'
+      preLoaderRoute: typeof PipelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/remediation': {
+      id: '/remediation'
+      path: '/remediation'
+      fullPath: '/remediation'
+      preLoaderRoute: typeof RemediationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/update': {
+      id: '/update'
+      path: '/update'
+      fullPath: '/update'
+      preLoaderRoute: typeof UpdateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/upload': {
+      id: '/upload'
+      path: '/upload'
+      fullPath: '/upload'
+      preLoaderRoute: typeof UploadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/validation': {
+      id: '/validation'
+      path: '/validation'
+      fullPath: '/validation'
+      preLoaderRoute: typeof ValidationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AnomalyRoute: AnomalyRoute,
+  DriftRoute: DriftRoute,
+  HistoryRoute: HistoryRoute,
+  MonitoringRoute: MonitoringRoute,
+  PipelineRoute: PipelineRoute,
+  RemediationRoute: RemediationRoute,
+  SettingsRoute: SettingsRoute,
+  UpdateRoute: UpdateRoute,
+  UploadRoute: UploadRoute,
+  ValidationRoute: ValidationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
