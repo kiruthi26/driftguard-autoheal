@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from "recharts";
 import { ArrowDown, ArrowRight, ArrowUp, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -385,10 +385,10 @@ export function ProfileTable({ base, cur }: { base: Analysis; cur?: Analysis | n
         <thead className="bg-muted font-mono uppercase text-muted-foreground"><tr><th className="px-3 py-2">Column</th><th className="px-3 py-2">Dataset</th>{H.map((h) => <th key={h} className="px-3 py-2">{h}</th>)}</tr></thead>
         <tbody className="font-mono">
           {cols.map((c) => (
-            <>
+            <Fragment key={c}>
               <tr key={c + "b"} className="border-t"><td rowSpan={cur ? 2 : 1} className="px-3 py-1.5 font-sans font-semibold">{c}</td><td className="px-3 py-1.5 text-success">baseline</td>{cell(base.profile.cols[c]).map((v, i) => <td key={i} className="whitespace-nowrap px-3 py-1.5">{v}</td>)}</tr>
               {cur && <tr key={c + "c"} className="bg-muted/30"><td className="px-3 py-1.5 text-destructive">current</td>{cell(cur.profile.cols[c]).map((v, i) => { const b = cell(base.profile.cols[c])[i]; return <td key={i} className={cn("whitespace-nowrap px-3 py-1.5", v !== b && (i === 0 || i === 1) && "font-semibold text-destructive")}>{v}</td>; })}</tr>}
-            </>
+            </Fragment>
           ))}
         </tbody>
       </table>
