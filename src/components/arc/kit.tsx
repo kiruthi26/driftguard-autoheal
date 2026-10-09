@@ -88,7 +88,7 @@ export function PipelineStages({ compact }: { compact?: boolean }) {
   const released = useArc((s) => s.released);
   return (
     <div>
-      <div className={cn("grid gap-2", compact ? "grid-cols-4 md:grid-cols-8" : "grid-cols-2 sm:grid-cols-4 lg:grid-cols-8")}>
+      <div className={cn("grid gap-2", compact ? "grid-cols-4 md:grid-cols-8" : "grid-cols-2 sm:grid-cols-4")}>
         {STAGES.map((st, i) => {
           const s = stages[st];
           return (

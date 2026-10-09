@@ -139,7 +139,7 @@ const ORDER: IssueKind[] = ["schema_type", "schema_removed", "duplicate", "inval
 
 export function detectIssues(ds: Dataset, base: Dataset, a: Analysis, baseA: Analysis, s: Settings): Omit<Issue, "detectedAt">[] {
   const out: Omit<Issue, "detectedAt">[] = [];
-  const mk = (i: Omit<Issue, "status" | "progress" | "id">) => out.push({ ...i, id: `${i.kind}-${i.column ?? "all"}`, status: "DETECTED", progress: 0 });
+  const mk = (i: Omit<Issue, "status" | "progress" | "id" | "detectedAt">) => out.push({ ...i, id: `${i.kind}-${i.column ?? "all"}`, status: "DETECTED", progress: 0 });
 
   for (const c of a.schema) {
     if (c.change === "TYPE") {

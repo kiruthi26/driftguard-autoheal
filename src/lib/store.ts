@@ -269,7 +269,7 @@ export const useArc = create<State>()(
           }
           dur = await stage("RECOVER", 800);
           log({ event: "RECOVERY", component: "Pipeline", issue: "-", method: "-", action: "Pipeline recovered", records: remediated.rows.length, status: "Recovered", durationMs: dur });
-          dur = await stage("RELEASE", 700, () => set({ released: true, phase: "resolved" }));
+          dur = await stage("RELEASE", 700, () => { set({ released: true, phase: "resolved" }); });
           log({ event: "RELEASE", component: "Downstream", issue: "-", method: "-", action: "Clean data released", records: remediated.rows.length, status: "Released", durationMs: dur });
           finishRun({ validation: "PASSED", recovery: "RECOVERED", status: "RECOVERED" });
         },

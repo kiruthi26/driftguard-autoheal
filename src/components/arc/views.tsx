@@ -186,7 +186,7 @@ export function RemediationFlowCard({ issue }: { issue: Issue }) {
       <div className="mt-1 text-sm">{children}</div>
     </div>
   );
-  const ex = issue.example;
+  const ex = issue.example?.field ? issue.example : undefined;
   const terminal = s === "QUARANTINED" || s === "REQUIRES_REVIEW" || s === "FAILED";
   return (
     <div className="rounded-xl border bg-card p-4 shadow-card">
